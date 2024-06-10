@@ -13,7 +13,7 @@ add this lines:
 
 
 # master
-sudo firewall-cmd --permanent --add-port=6443/tcp \n
+sudo firewall-cmd --permanent --add-port=6443/tcp
 sudo firewall-cmd --permanent --add-port=8472/udp
 sudo firewall-cmd --permanent --add-port=10250/tcp
 sudo firewall-cmd --permanent --add-port=51820/udp
