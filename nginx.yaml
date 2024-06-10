@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:  # "matchlabels" ﺏﺎﯾﺩ "matchLabels" ﺏﺎﺷﺩ
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx  # ﻑﺎﺼﻠﻫ<200c>ﮔﺫﺍﺮﯾ ﺺﺤﯿﺣ ﻭ "-" ﺏﺎﯾﺩ ﯽﮐ ﻑﺎﺼﻠﻫ ﺍﺯ "name" ﺩﺎﺸﺘﻫ ﺏﺎﺷﺩ
+          image: nginx:1.14.2  # "Image" ﺏﺎﯾﺩ "image" ﺏﺎﺷﺩ
+          ports:
+            - containerPort: 80  # ﻑﺎﺼﻠﻫ<200c>ﮔﺫﺍﺮﯾ ﺺﺤﯿﺣ ﻭ "-" ﺏﺎﯾﺩ ﯽﮐ ﻑﺎﺼﻠﻫ ﺍﺯ "containerPort" ﺩﺎﺸﺘﻫ ﺏﺎﺷﺩ
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:  # ﻑﺎﺼﻠﻫ<200c>ﮔﺫﺍﺮﯾ ﺩﺮﺴﺗ
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP  # ﻑﺎﺼﻠﻫ<200c>ﮔﺫﺍﺮﯾ ﺺﺤﯿﺣ ﻭ "-" ﺏﺎﯾﺩ ﯽﮐ ﻑﺎﺼﻠﻫ ﺍﺯ "protocol" ﺩﺎﺸﺘﻫ ﺏﺎﺷﺩ
+      port: 8080
+      targetPort: 80
