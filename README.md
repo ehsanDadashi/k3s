@@ -48,3 +48,7 @@ K10ef303b4ec3edfa9add8c69f669b4a698c68c5f0f38846b5e72e37e27cd86e2f0::server:a792
 
 curl -sfL https://get.k3s.io | K3S_URL=https://k3s-master:6443 K3S_TOKEN=K10ef303b4ec3edfa9add8c69f669b4a698c68c5f0f38846b5e72e37e27cd86e2f0::server:a79222126c816c9e9a68767e7195e512 sh -;
 
+# apply ngnix to kuber cluster
+kubectl apply -f nginx.yaml
+
+#
