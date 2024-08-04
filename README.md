@@ -7,8 +7,11 @@ hostnamectl set-hostname "k3s-worker01" && exec bash
 
 # master and worker
 vi /ets/hosts
+
 add this lines:
+
 192.168.1.161 k3s-master
+
 192.168.1.163 k3s-worker01
 
 
