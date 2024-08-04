@@ -17,21 +17,34 @@ add this lines:
 
 # master
 sudo firewall-cmd --permanent --add-port=6443/tcp
+
 sudo firewall-cmd --permanent --add-port=8472/udp
+
 sudo firewall-cmd --permanent --add-port=10250/tcp
+
 sudo firewall-cmd --permanent --add-port=51820/udp
+
 sudo firewall-cmd --permanent --add-port=51821/udp
+
 sudo firewall-cmd --permanent --zone=trusted --add-source=10.42.0.0/16
+
 sudo firewall-cmd --permanent --zone=trusted --add-source=10.43.0.0/16
+
 sudo firewall-cmd --reload
 
 # worker
 sudo firewall-cmd --permanent --add-port=8472/udp
+
 sudo firewall-cmd --permanent --add-port=10250/tcp
+
 sudo firewall-cmd --permanent --add-port=51820/udp
+
 sudo firewall-cmd --permanent --add-port=51821/udp
+
 sudo firewall-cmd --permanent --zone=trusted --add-source=10.42.0.0/16
+
 sudo firewall-cmd --permanent --zone=trusted --add-source=10.43.0.0/16
+
 sudo firewall-cmd --reload
 
 
@@ -39,9 +52,13 @@ sudo firewall-cmd --reload
 curl -sfL https://get.k3s.io | sh -
 
 mkdir ~/.kube
+
 sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+
 sudo chown $USER ~/.kube/config
+
 sudo chmod 600 ~/.kube/config
+
 export KUBECONFIG=~/.kube/config
 
 cat /var/lib/rancher/k3s/server/node-token;
